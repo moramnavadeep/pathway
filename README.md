@@ -1,12 +1,12 @@
 
-# ???? Real-Time BREAKING NEWS News Q\\&A with Pathway RAG CHAT BOT
+# Real-Time BREAKING NEWS News Q\\&A with Pathway RAG CHAT BOT
 
 This code showcases how to deploy a **Retrieval-Augmented Generation (RAG)** pipeline with [Pathway](https://pathway.com/) for **live question answering** on news data.
 Rather than using static datasets, this system ingests the most recent articles from **NewsAPI**, indexes them in **Pathway's document store**, and responds to user questions with a Hugging Face **question-answering model**.
 
 ---
 
-## ???? Features
+## Features
 
 * **Live data ingestion**: Ingests news headlines/articles directly from [NewsAPI](https://newsapi.org/).
 * **Automated text processing**: Cleans, tokenizes, and embeds articles.
@@ -20,14 +20,14 @@ Rather than using static datasets, this system ingests the most recent articles 
 
 ```mermaid
 flowchart TD
-    A[User Query] -->|ask("'.")| B[RAG Engine]
-    B --> C[Retriever: Pathway Document Store + UsearchKnn]
-    C --> D[Relevant News Context]
-    D --> E[HF QA Model: DistilBERT]
-```
-E --> F[Final Answer + Sources]
-G[NewsAPI] -->|Fetch JSON| H[Preprocessing & Embedding]
-H --> C
+    A[User Query: "What is the latest news on AI?"] --> B[RAG Engine]
+    B --> C[Retriever fetches News Articles]
+    C --> D[Embedder encodes docs]
+    D --> E[Vector DB / USearch]
+    E --> F[Relevant Context + URL]
+    F --> G[LLM (Question Answering)]
+    G --> H[Final Answer with Sources]
+
 ```
 
 1. **NewsAPI fetch** – gets the most recent articles in JSON.
@@ -39,7 +39,7 @@ H --> C
 
 ---
 
-## ???? Installation
+## Installation
 
 ```bash
 pip install pathway sentence-transformers transformers requests pandas beautifulsoup4
@@ -47,7 +47,7 @@ pip install pathway sentence-transformers transformers requests pandas beautiful
 
 ---
 
-## ???? Environment Variables
+## Environment Variables
 
 You require a valid [NewsAPI key](https://newsapi.org/).
 Either set it hard-coded in the script or in a `.env` file:
@@ -86,7 +86,7 @@ Answer: "Researchers created a new cancer treatment."
 
 ---
 
-## ???? Why Pathway?
+## Why Pathway?
 
 While static pipelines are typical of traditional approaches, **Pathway** allows for:
 
@@ -98,7 +98,7 @@ This makes it well-suited for **real-time knowledge retrieval systems** like liv
 
 ---
 
-## ???? Next Steps
+## Next Steps
 
 * Deploy as an API endpoint (FastAPI/Flask).
 * Support for multiple news sources added.
@@ -107,7 +107,7 @@ This makes it well-suited for **real-time knowledge retrieval systems** like liv
 
 ---
 
-## ????️ Tech Stack
+## Tech Stack
 
 * **Pathway** – streaming data + retrieval
 * **SentenceTransformers** – embeddings (`all-MiniLM-L6-v2`)
@@ -118,7 +118,7 @@ This makes it well-suited for **real-time knowledge retrieval systems** like liv
 
 ---
 
-## ???? License
+## License
 
 MIT License. Feel free to use and modify.
 
