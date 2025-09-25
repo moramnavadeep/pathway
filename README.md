@@ -1,6 +1,8 @@
 
 # Real-Time BREAKING NEWS News Q\\&A with Pathway RAG CHAT BOT
 
+here is working video https://drive.google.com/file/d/1G_Nxs2svaDCi3doKFNl-qzYJhRS8d_ar/view
+
 This code showcases how to deploy a **Retrieval-Augmented Generation (RAG)** pipeline with [Pathway](https://pathway.com/) for **live question answering** on news data.
 Rather than using static datasets, this system ingests the most recent articles from **NewsAPI**, indexes them in **Pathway's document store**, and responds to user questions with a Hugging Face **question-answering model**.
 
